@@ -7,7 +7,7 @@ import { services } from "../data/services-data"
 import { getIcon } from "@/lib/get-icon"
 
 export function ServicesShowcase() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   const containerVariants = {
@@ -19,12 +19,8 @@ export function ServicesShowcase() {
   }
 
   const itemVariants = {
-    visible: (delay = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay },
-    }),
     hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }
 
   return (
@@ -38,7 +34,6 @@ export function ServicesShowcase() {
         {services.map((service, index) => (
           <motion.div
             key={service.id}
-            custom={index * 0.2} // delay'i index bazlı veriyoruz
             variants={itemVariants}
             className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
           >

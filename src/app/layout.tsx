@@ -8,9 +8,9 @@ import { Footer } from "./components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: "Biyeganem",
-  description: "Özel Günlerin Mimarı",
+export const metadata: Metadata = {
+  title: "Biyeganem | Özel Günlerin Mimarı",
+  description: "Zarif organizasyonlar, unutulmaz anılar. Biyeganem ile özel günlerinize dokunuş katın.",
 }
 
 export default function RootLayout({
@@ -19,18 +19,27 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+        {/* Google Font (Opsiyonel Özel Yazı Tipi) */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+          rel="stylesheet"
+        />
+        
+        {/* ✅ Sekme İkonu */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+        {/* Alternatif PNG destekli favicon (isteğe bağlı) */}
+        {/* <link rel="icon" href="/icon.png" type="image/png" /> */}
       </head>
       <body className={`${inter.className} scroll-smooth`}>
-        <Header/>
+        <Header />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
         <Footer />
       </body>
-
     </html>
   )
 }

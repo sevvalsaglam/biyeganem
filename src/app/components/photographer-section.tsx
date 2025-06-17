@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import HTMLFlipBook from "react-pageflip"
+import { Camera } from "lucide-react"
 
 const albumPages = [
   {
@@ -24,33 +25,18 @@ export function PhotographerSection() {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-[#f0efe6]">
       <div className="container mx-auto px-4 text-center">
-        <div className="inline-block bg-black text-white px-4 py-1 rounded-full text-sm mb-4">
-          Fotoğrafçımız
-        </div>
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
           Özel Günlerinizi Ölümsüzleştirin
         </h2>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-4">
           Anların içindeki duyguyu yakalayan bir göz… Profesyonel çekimlerle her anınızı ölümsüzleştiriyoruz.
         </p>
-        <p className="text-gray-500 font-semibold mb-10">
-          📸 Fotoğrafçı: <span className="text-black">Elif Yılmaz</span>
-        </p>
 
-        {/* Albüm gezintisi */}
-        <div className="flex justify-center items-center gap-4 mb-6">
-          <button
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-            onClick={() => bookRef.current?.pageFlip()?.flipPrev()}
-          >
-            ← Geri
-          </button>
-          <button
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-            onClick={() => bookRef.current?.pageFlip()?.flipNext()}
-          >
-            İleri →
-          </button>
+        <div className="flex justify-center items-center gap-2 text-gray-600 font-semibold mb-10">
+          <Camera className="w-5 h-5" />
+          <span>
+            Fotoğrafçı: <span className="text-black">Elif Yılmaz</span>
+          </span>
         </div>
 
         {/* Albüm */}
@@ -59,14 +45,14 @@ export function PhotographerSection() {
             width={800}
             height={500}
             size="stretch"
-            minWidth={315}
+            minWidth={320}
             maxWidth={1000}
             minHeight={400}
             maxHeight={700}
             maxShadowOpacity={0.5}
             showCover={false}
             mobileScrollSupport={true}
-            className="shadow-xl rounded"
+            className="shadow-xl rounded overflow-hidden"
             ref={bookRef}
           >
             {albumPages.map((page, i) => (
@@ -99,4 +85,3 @@ export function PhotographerSection() {
     </section>
   )
 }
-

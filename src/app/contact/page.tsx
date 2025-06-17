@@ -18,17 +18,12 @@ export default function ContactPage() {
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <RevealText>
-              <div className="inline-block px-3 py-1 mb-4 text-xs font-medium bg-gray-100 rounded-full">
-                Bizimle İletişime Geçin
-              </div>
-            </RevealText>
             <RevealText delay={0.1}>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">İletişim</h1>
             </RevealText>
             <RevealText delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Sorularınız mı var? İş birliği teklifiniz mi var? Formu doldurun, en kısa sürede size dönüş yapalım.
+                Organizasyonunuzla ilgili her türlü sorunuz için bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağız.
               </p>
             </RevealText>
           </div>
@@ -60,7 +55,7 @@ export default function ContactPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Biyeganem organizasyon ofis konumu"
-                ></iframe>
+                />
               </div>
             </div>
           </div>

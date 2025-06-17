@@ -2,28 +2,35 @@
 
 import { useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
+import type { ReactNode, MouseEvent } from "react"
 
-interface Props {
+interface SmoothScrollLinkProps {
   href: string
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   onClick?: () => void
 }
 
-export function SmoothScrollLink({ href, children, className, onClick }: Props) {
+export function SmoothScrollLink({
+  href,
+  children,
+  className,
+  onClick,
+}: SmoothScrollLinkProps) {
   const router = useRouter()
   const pathname = usePathname()
 
   const isInternalAnchor = href.startsWith("#")
   const targetId = href.replace("#", "")
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
+    if (!isInternalAnchor) return router.push(href)
+
     if (pathname !== "/") {
-      // Scroll hedefini sakla
       localStorage.setItem("scrollTarget", targetId)
-      router.push("/") // Ana sayfaya yönlendir
+      router.push("/")
     } else {
       const el = document.getElementById(targetId)
       if (el) {

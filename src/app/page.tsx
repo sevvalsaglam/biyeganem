@@ -13,6 +13,7 @@ import { GiftsSection } from "./components/gifts-section"
 
 export default function Home() {
   const heroRef = useRef(null)
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -24,16 +25,16 @@ export default function Home() {
 
   return (
     <div className="bg-[#f0efe6]">
+      {/* Mobile Menü varsayılan olarak kapalı, açık hali başka komponentten kontrol edilir */}
       <MobileMenu isOpen={false} onClose={() => {}} />
 
       <main>
         <HeroSection ref={heroRef} opacity={opacity} scale={scale} y={y} />
+
+        {/* HİZMETLER */}
         <section id="hizmetler" className="py-24 bg-green-950 text-white scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="mb-16">
-              <div className="inline-block px-4 py-1 mb-4 text-xs font-medium bg-white/10 backdrop-blur-sm rounded-full">
-                Hizmet Alanlarımız
-              </div>
               <h2 className="text-4xl md:text-6xl font-bold">Neler Yapıyoruz?</h2>
               <p className="mt-4 text-lg text-gray-300 max-w-3xl">
                 Söz, nişan, düğün, after party ve kına geceleri için tam kapsamlı planlama ve uygulama hizmeti sunuyoruz.
@@ -43,12 +44,10 @@ export default function Home() {
           </div>
         </section>
 
+        {/* DETAYLI ORGANİZASYON */}
         <section id="organizasyonlar" className="py-24 bg-white scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1 mb-4 text-xs font-medium bg-gray-100 rounded-full">
-                Detaylar
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold">Sizin İçin Ne Yapabiliriz?</h2>
               <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
                 Hayalinizdeki günü size özel tasarlıyoruz. Detaylar için aşağıdan keşfetmeye başlayın.
@@ -58,12 +57,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* DİĞER SEKTÖRLER */}
         <TestimonialsSection />
         <PhotographerSection />
         <VenuesShowcaseSection />
         <GiftsSection />
       </main>
-
     </div>
   )
 }

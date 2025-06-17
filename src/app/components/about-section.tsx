@@ -42,11 +42,11 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-10 text-center"
         >
-          Biyeganem’in Hikayesi
+          Biyegânem’in Hikayesi
         </motion.h2>
 
         <RevealText className="text-lg leading-relaxed mb-6">
-          Biyeganem, genç ve vizyon sahibi bir girişimcinin tutkusu ile kuruldu. Kurucumuz <strong>Meryem Çakal</strong>, öğretmenlik mesleğini bırakıp hayalinin peşinden giderek 26 yaşında kendi organizasyon firmasını kurdu. Bugün, birçok başarılı etkinliğe imza atarak çiftlerin en özel anlarına dokunuyor.
+        Biyegânem, genç ve vizyon sahibi bir girişimcinin tutkusu ile kuruldu. Kurucumuz <strong>Meryem Çakal</strong>, öğretmenlik mesleğini bırakıp hayalinin peşinden giderek 26 yaşında kendi organizasyon firmasını kurdu. Bugün, birçok başarılı etkinliğe imza atarak çiftlerin en özel anlarına dokunuyor.
         </RevealText>
 
         <RevealText className="text-lg leading-relaxed mb-6">
