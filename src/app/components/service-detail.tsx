@@ -19,7 +19,6 @@ interface ServiceDetailProps {
 }
 
 export function ServiceDetail({
-  id,
   title,
   description,
   features,
@@ -42,7 +41,7 @@ export function ServiceDetail({
       }}
       className={`flex flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"} gap-10 py-16 border-t border-white/20`}
     >
-      {/* TEXT SIDE */}
+      {/* METİN */}
       <motion.div
         initial={{ opacity: 0, x: reverse ? 60 : -60 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -54,7 +53,7 @@ export function ServiceDetail({
         </div>
 
         <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6">{description}</p>
+        <p className="text-gray-700 mb-6 leading-relaxed">{description}</p>
 
         <ul className="space-y-3 mb-8 text-sm text-gray-600">
           {features.map((feature, index) => (
@@ -71,14 +70,14 @@ export function ServiceDetail({
           ))}
         </ul>
 
-        <Link href={`/organizasyon/${slug}`} passHref>
+        <Link href={`/organizasyon/${slug}`}>
           <AnimatedButton className="bg-black text-white hover:bg-gray-900">
             Detayları Gör
           </AnimatedButton>
         </Link>
       </motion.div>
 
-      {/* IMAGE SIDE */}
+      {/* GÖRSEL */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, x: reverse ? -60 : 60 }}
         animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}

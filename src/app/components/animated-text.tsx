@@ -21,10 +21,12 @@ export function AnimatedText({
   const [triggered, setTriggered] = useState(false)
 
   useEffect(() => {
-    if (isInView && !triggered) setTriggered(true)
+    if (isInView && !triggered) {
+      setTriggered(true)
+    }
   }, [isInView, triggered])
 
-  const words = text.split(" ")
+  const words = text.split(" ").filter(Boolean)
 
   return (
     <motion.div

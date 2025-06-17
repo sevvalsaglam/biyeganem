@@ -14,13 +14,16 @@ const gifts = [
 
 export function GiftsSection() {
   return (
-    <section className="py-24 bg-[#f0efe6]">
+    <section className="py-24 bg-[#f0efe6]" id="hediyelikler">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">Hediyelikler</h2>
-          <p className="mt-2 text-gray-600">Misafirlerinize özel anılar bırakın</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-2">Hediyelikler</h2>
+          <p className="text-gray-600 text-lg">
+            Misafirlerinize küçük ama anlamlı sürprizlerle unutulmaz bir gün yaşatın.
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {gifts.map((gift, index) => (
             <motion.div
               key={index}
@@ -35,7 +38,7 @@ export function GiftsSection() {
                 alt={gift.name}
                 width={300}
                 height={200}
-                className="object-cover rounded-md mb-4"
+                className="object-cover rounded-md mb-4 w-full h-auto"
               />
               <h3 className="text-xl font-semibold text-gray-800 text-center">{gift.name}</h3>
             </motion.div>

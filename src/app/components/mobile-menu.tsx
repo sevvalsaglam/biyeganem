@@ -40,17 +40,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           transition={{ type: "spring", damping: 20, stiffness: 250 }}
           className="fixed inset-0 z-50 bg-white/30 backdrop-blur-lg flex flex-col overflow-y-auto"
         >
-          {/* Logo + Close */}
+          {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/20 bg-white/10">
             <Logo variant="header" size="md" />
-            <button onClick={onClose} className="text-black p-2 rounded-full hover:bg-black/10 transition" aria-label="Kapat">
+            <button
+              onClick={onClose}
+              className="text-black p-2 rounded-full hover:bg-black/10 transition"
+              aria-label="Menüyü Kapat"
+            >
               <X className="h-6 w-6" />
             </button>
           </div>
 
-          {/* Menu Content */}
+          {/* Menü İçeriği */}
           <div className="flex flex-col p-6 space-y-6 text-black font-medium">
-            {/* Dropdown */}
+            {/* Açılır Menü */}
             <div className="pb-4 border-b border-white/20">
               <button
                 onClick={() => setOrgOpen(!orgOpen)}
@@ -88,12 +92,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </AnimatePresence>
             </div>
 
-            {/* Static Pages */}
+            {/* Sabit Sayfalar */}
             {[
               { label: "Hakkımızda", href: "/hakkimizda" },
               { label: "Trendler", href: "/trendler" },
               { label: "Galeri", href: "/galeri" },
               { label: "İletişim", href: "/iletisim" },
+              { label: "BiKids", href: "/bikidsevent" }, // Madde 10 – Mobil menüye eklendi
             ].map((link) => (
               <Link
                 key={link.href}
@@ -106,7 +111,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ))}
           </div>
 
-          {/* Footer CTA */}
+          {/* Alt CTA Butonlar */}
           <div className="mt-auto p-6 border-t border-white/10">
             <div className="flex flex-col space-y-4">
               {isHome ? (
@@ -128,8 +133,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               )}
               <Link
                 href="/contact"
-                className="border border-black/70 py-3 px-6 rounded-full text-center font-medium hover:bg-black/10 transition"
                 onClick={onClose}
+                className="border border-black/70 py-3 px-6 rounded-full text-center font-medium hover:bg-black/10 transition"
               >
                 Bizimle Çalışın
               </Link>

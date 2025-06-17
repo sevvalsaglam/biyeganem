@@ -41,7 +41,7 @@ export function AnimatedButton({
       <AnimatePresence>
         {hovered && !disabled && (
           <motion.div
-            className="absolute inset-0 rounded-full bg-black/10 dark:bg-white/10"
+            className="absolute inset-0 rounded-full bg-white/20 backdrop-blur-md"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
@@ -54,7 +54,7 @@ export function AnimatedButton({
         className={cn(
           base[variant],
           "relative rounded-full px-6 py-2 font-medium transition",
-          hovered && "shadow-md",
+          hovered && "shadow-lg",
           disabled && "opacity-50 pointer-events-none",
           className
         )}

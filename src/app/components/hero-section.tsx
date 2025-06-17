@@ -48,10 +48,17 @@ export const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>(
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <AnimatedButton className="bg-white text-black hover:bg-gray-200">
+            <AnimatedButton
+              className="bg-white text-black hover:bg-gray-200"
+              href="/galeri"
+            >
               Organizasyonlara Göz At
             </AnimatedButton>
-            <AnimatedButton variant="outline" className="border-white text-white hover:bg-white/10">
+            <AnimatedButton
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+              href="/iletisim"
+            >
               Bize Ulaşın
             </AnimatedButton>
           </motion.div>

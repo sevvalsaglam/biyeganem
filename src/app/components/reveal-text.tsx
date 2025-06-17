@@ -1,8 +1,7 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, type ReactNode } from "react"
 import { motion, useInView } from "framer-motion"
-import type { ReactNode } from "react"
 
 interface RevealTextProps {
   children: ReactNode
@@ -11,8 +10,13 @@ interface RevealTextProps {
   threshold?: number
 }
 
-export function RevealText({ children, className = "", delay = 0, threshold = 0.4 }: RevealTextProps) {
-  const ref = useRef(null)
+export function RevealText({
+  children,
+  className = "",
+  delay = 0,
+  threshold = 0.4,
+}: RevealTextProps) {
+  const ref = useRef<HTMLDivElement>(null)
   const isVisible = useInView(ref, { once: true, amount: threshold })
 
   return (

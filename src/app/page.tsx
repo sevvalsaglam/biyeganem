@@ -28,7 +28,7 @@ export default function Home() {
 
       <main>
         <HeroSection ref={heroRef} opacity={opacity} scale={scale} y={y} />
-        <section id="hizmetler" className="py-24 bg-black text-white scroll-mt-20">
+        <section id="hizmetler" className="py-24 bg-green-950 text-white scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="mb-16">
               <div className="inline-block px-4 py-1 mb-4 text-xs font-medium bg-white/10 backdrop-blur-sm rounded-full">

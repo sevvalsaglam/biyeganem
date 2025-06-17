@@ -33,18 +33,19 @@ export function OrganizationGallery({ title, description, images }: Props) {
         <p className="text-lg text-gray-600 mt-4">{description}</p>
       </motion.div>
 
-      {/* Büyük Fotoğraf ve Açıklama */}
+      {/* Büyük Görsel + Açıklama */}
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <motion.div
           key={activeImage.src}
           layoutId="main-image"
-          className="w-full h-[400px] relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-md shadow-xl transition-all duration-300"
+          className="w-full h-[400px] relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-md shadow-xl"
         >
           <Image
             src={activeImage.src}
             alt={activeImage.alt}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
             priority
           />
         </motion.div>
@@ -56,7 +57,7 @@ export function OrganizationGallery({ title, description, images }: Props) {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl font-semibold mb-2 text-gray-800">{activeImage.alt}</h2>
-          <p className="text-gray-700 mb-4 text-sm">{activeImage.description}</p>
+          <p className="text-gray-700 mb-4 text-sm leading-relaxed">{activeImage.description}</p>
           <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
             {activeImage.details.map((d, i) => (
               <li key={i}>{d}</li>
@@ -65,7 +66,7 @@ export function OrganizationGallery({ title, description, images }: Props) {
         </motion.div>
       </div>
 
-      {/* Küçük Fotoğraf Kutuları */}
+      {/* Küçük Görsel Seçiciler */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 max-w-5xl mx-auto">
         {images.map((img) => (
           <motion.div
@@ -81,7 +82,7 @@ export function OrganizationGallery({ title, description, images }: Props) {
               alt={img.alt}
               width={300}
               height={200}
-              className="object-cover w-full h-32"
+              className="object-cover w-full h-32 sm:h-36 md:h-40"
             />
           </motion.div>
         ))}

@@ -3,7 +3,7 @@
 
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "@fontsource/dancing-script"; /* tüm yazı tipini yükler */
+@import "@fontsource/dancing-script"; 
 
 
 @custom-variant dark (&:is(.dark *));

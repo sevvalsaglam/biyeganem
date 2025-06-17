@@ -41,8 +41,9 @@ export function GallerySection() {
                 alt={img.alt}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute bottom-0 w-full bg-black/50 text-white text-sm px-3 py-2">
+              <div className="absolute bottom-0 w-full bg-black/50 text-white text-sm px-3 py-2 backdrop-blur-sm">
                 {img.alt}
               </div>
             </motion.div>

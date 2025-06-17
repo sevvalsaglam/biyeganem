@@ -1,22 +1,21 @@
 "use client"
 
-import Link from "next/link"
 import { Logo } from "./logo"
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-16">
+    <footer className="bg-green-950 text-white py-16">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <Logo variant="footer" size="md" showSlogan />
+          <Logo variant="footer" size="md" />
         </div>
         <div>
           <h3 className="font-semibold mb-4">Hızlı Erişim</h3>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="#hizmetler" className="hover:text-white">Hizmetler</a></li>
-            <li><a href="#organizasyonlar" className="hover:text-white">Organizasyonlar</a></li>
-            <li><a href="#mekanlar" className="hover:text-white">Mekanlar</a></li>
-            <li><a href="#galeri" className="hover:text-white">Galeri</a></li>
+            <li><a href="#hizmetler" className="hover:text-white transition">Hizmetler</a></li>
+            <li><a href="#organizasyonlar" className="hover:text-white transition">Organizasyonlar</a></li>
+            <li><a href="#mekanlar" className="hover:text-white transition">Mekanlar</a></li>
+            <li><a href="#galeri" className="hover:text-white transition">Galeri</a></li>
           </ul>
         </div>
         <div>
@@ -26,9 +25,9 @@ export function Footer() {
         </div>
         <div>
           <h3 className="font-semibold mb-4">Sosyal Medya</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-white text-gray-400">Instagram</a>
-            <a href="#" className="hover:text-white text-gray-400">TikTok</a>
+          <div className="flex space-x-4 text-sm text-gray-400">
+            <a href="#" className="hover:text-white transition">Instagram</a>
+            <a href="#" className="hover:text-white transition">TikTok</a>
           </div>
         </div>
       </div>

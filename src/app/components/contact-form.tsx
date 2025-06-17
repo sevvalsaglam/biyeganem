@@ -21,12 +21,21 @@ export function ContactForm() {
     const result = await submitContactForm(formData)
 
     setIsSubmitting(false)
-    result.success ? setSubmitted(true) : (setErrors(result.errors ?? null), setMessage(result.message ?? null))
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setErrors(result.errors ?? null)
+      setMessage(result.message ?? null)
+    }
   }
 
   const formVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
   }
 
   const itemVariants = {
@@ -45,8 +54,8 @@ export function ContactForm() {
         <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
           <Check className="w-8 h-8 text-green-600" />
         </div>
-        <h3 className="text-2xl font-bold mb-4">Mesajınız Ulaştı 🎉</h3>
-        <p className="text-gray-600 mb-6">Size en kısa sürede dönüş yapacağız. İlginiz için teşekkür ederiz.</p>
+        <h3 className="text-2xl font-bold mb-4">Mesajınız Ulaştı</h3>
+        <p className="text-gray-600 mb-6">En kısa sürede sizinle iletişime geçeceğiz. İlginiz için teşekkür ederiz.</p>
         <AnimatedButton onClick={() => setSubmitted(false)} className="bg-black text-white">
           Yeni Mesaj Gönder
         </AnimatedButton>
@@ -145,7 +154,7 @@ export function ContactForm() {
           rows={5}
           required
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black transition"
-          placeholder="Bize organizasyon detaylarınızı anlatabilirsiniz..."
+          placeholder="Organizasyon detaylarınızı bizimle paylaşabilirsiniz..."
         />
         {errors?.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
       </motion.div>
