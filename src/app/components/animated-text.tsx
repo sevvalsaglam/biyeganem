@@ -1,8 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 interface AnimatedTextProps {
   text: string
@@ -11,59 +10,52 @@ interface AnimatedTextProps {
   delay?: number
 }
 
-export function AnimatedText({ text, className = "", once = true, delay = 0 }: AnimatedTextProps) {
+export function AnimatedText({
+  text,
+  className = "",
+  once = true,
+  delay = 0,
+}: AnimatedTextProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once })
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const [triggered, setTriggered] = useState(false)
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true)
-    }
-  }, [isInView, hasAnimated])
+    if (isInView && !triggered) setTriggered(true)
+  }, [isInView, triggered])
 
   const words = text.split(" ")
-
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: delay * i },
-    }),
-  }
-
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  }
 
   return (
     <motion.div
       ref={ref}
       className={`overflow-hidden ${className}`}
-      variants={container}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      custom={1}
+      animate={triggered ? "visible" : "hidden"}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.08,
+            delayChildren: delay,
+          },
+        },
+      }}
     >
-      {words.map((word, index) => (
-        <motion.span key={index} className="inline-block mr-1" variants={child}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { type: "spring", stiffness: 500, damping: 30 },
+            },
+          }}
+          className="inline-block mr-1"
+        >
           {word}
         </motion.span>
       ))}

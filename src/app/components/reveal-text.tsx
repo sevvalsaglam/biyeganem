@@ -1,39 +1,30 @@
 "use client"
 
-import type React from "react"
-
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import type { ReactNode } from "react"
 
 interface RevealTextProps {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   delay?: number
   threshold?: number
 }
 
-export function RevealText({ children, className = "", delay = 0, threshold = 0.5 }: RevealTextProps) {
+export function RevealText({ children, className = "", delay = 0, threshold = 0.4 }: RevealTextProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: threshold })
-
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: delay,
-      },
-    },
-  }
+  const isVisible = useInView(ref, { once: true, amount: threshold })
 
   return (
     <motion.div
       ref={ref}
-      variants={variants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.6,
+        ease: [0.17, 0.67, 0.83, 0.67],
+        delay,
+      }}
       className={className}
     >
       {children}

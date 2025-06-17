@@ -1,84 +1,84 @@
 "use client"
 
-import { Laptop, ShoppingCart, Code, Smartphone } from "lucide-react"
+import { Gem, Heart, PartyPopper, Sparkles } from "lucide-react"
 import { ServiceDetail } from "./service-detail"
 
 export function ServicesDetailSection() {
   const services = [
     {
       id: 1,
-      title: "Professional Web Design & Development",
+      slug: "soz",
+      title: "Söz & Nişan Organizasyonu",
       description:
-        "We design and develop stunning, responsive websites that captivate your audience and drive conversions. Our websites are built with the latest technologies and best practices.",
+        "Söz ve nişan törenlerinizi unutulmaz kılmak için özel konseptler ve detaylı planlama sunuyoruz. Ailelerin bir araya geldiği bu özel günde, her ayrıntı bizden sorulur.",
       features: [
-        "Responsive design for all devices",
-        "SEO optimization for better visibility",
-        "Fast loading speeds for better user experience",
-        "Custom animations and interactions",
+        "Özel masa ve arka plan süslemeleri",
+        "Canlı çiçek aranjmanları ve aksesuarlar",
+        "Işıklandırma ve fotoğraf alanı",
+        "Söz tepsisi, yüzük yastığı ve dekoratif detaylar",
       ],
-      image: "/images/service-website.jpg",
-      icon: <Laptop className="h-6 w-6" />,
+      image: "/images/service-soz-nisan.jpg",
+      icon: <Gem className="h-6 w-6" />,
     },
     {
       id: 2,
-      title: "E-commerce Solutions",
+      slug: "dugun",
+      title: "Düğün Planlama",
       description:
-        "Transform your business with our custom e-commerce solutions. We build secure, scalable online stores that drive sales and provide exceptional shopping experiences.",
+        "Hayalinizdeki düğünü baştan sona tasarlıyoruz. Konsept belirleme, mekan süslemesi, teknik altyapı ve tüm detayları profesyonelce yönetiyoruz.",
       features: [
-        "Secure payment gateway integration",
-        "Inventory management systems",
-        "Customer account management",
-        "Order tracking and fulfillment",
+        "Kapsamlı düğün planlama ve koordinasyon",
+        "Masa-sandalye süsleme ve sahne kurulumu",
+        "DJ/bando/ses-ışık ekipleriyle tam hizmet",
+        "Gelin-damat karşılama alanı konsepti",
       ],
-      image: "/images/service-ecommerce.jpg",
-      icon: <ShoppingCart className="h-6 w-6" />,
+      image: "/images/service-dugun.jpg",
+      icon: <Heart className="h-6 w-6" />,
       reverse: true,
     },
     {
       id: 3,
-      title: "Web Applications",
+      slug: "after-party",
+      title: "After Party Organizasyonu",
       description:
-        "Custom web applications tailored to your specific business needs. We create powerful, scalable solutions that streamline operations and enhance productivity.",
+        "Düğün sonrası eğlence için konseptli after party organizasyonları. DJ performansı, ışık ve ses sistemleri, kokteyl sunumlarıyla enerjik geceler sunuyoruz.",
       features: [
-        "Custom dashboards and analytics",
-        "User authentication and authorization",
-        "Real-time data processing",
-        "Integration with third-party services",
+        "DJ kabini ve canlı performanslar",
+        "Dans alanı ışıklandırması",
+        "Kokteyl setup ve bar hizmetleri",
+        "After party temalı dekor ve aksesuarlar",
       ],
-      image: "/images/service-webapp-new.jpg",
-      icon: <Code className="h-6 w-6" />,
+      image: "/images/service-after-party.jpg",
+      icon: <PartyPopper className="h-6 w-6" />,
     },
     {
       id: 4,
-      title: "iOS & Android App Development",
+      slug: "nisan",
+      title: "Kına Gecesi & Özel Günler",
       description:
-        "Native mobile applications for iOS and Android that provide seamless experiences across all devices. We focus on intuitive interfaces and performance.",
+        "Kültürel mirasımız olan kına gecelerinin yanı sıra baby shower, doğum günü gibi etkinlikler için de konsept organizasyonlar sunuyoruz.",
       features: [
-        "Native iOS and Android development",
-        "Cross-platform solutions",
-        "Push notifications and real-time updates",
-        "Offline functionality",
+        "Kına tahtı ve nedime kostümleri",
+        "Davul-zurna, oryantal gibi eğlenceler",
+        "Geleneksel kına malzemeleri ve sunumlar",
+        "Doğum günü/baby shower masa konseptleri",
       ],
-      image: "/images/mobile-image.jpg",
-      icon: <Smartphone className="h-6 w-6" />,
+      image: "/images/service-kina.jpg",
+      icon: <Sparkles className="h-6 w-6" />,
       reverse: true,
     },
   ]
 
   return (
-    <div className="py-8">
-      {services.map((service) => (
-        <ServiceDetail
-          key={service.id}
-          id={service.id}
-          title={service.title}
-          description={service.description}
-          features={service.features}
-          image={service.image}
-          icon={service.icon}
-          reverse={service.reverse}
-        />
-      ))}
-    </div>
+    <section className="py-16 bg-[#f0efe6]">
+      <div className="container mx-auto px-4 space-y-16">
+        {services.map((service) => (
+          <ServiceDetail
+            key={service.id}
+            {...service}
+          />
+        ))}
+      </div>
+    </section>
   )
 }

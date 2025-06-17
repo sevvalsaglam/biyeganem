@@ -1,10 +1,9 @@
 "use client"
 
-import type React from "react"
-
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Laptop, ShoppingCart, Code, Smartphone } from "lucide-react"
+import Link from "next/link"
+import { Gem, Heart, PartyPopper, Sparkles } from "lucide-react"
 import { AnimatedButton } from "./animated-button"
 
 interface Service {
@@ -13,44 +12,49 @@ interface Service {
   description: string
   icon: React.ReactNode
   delay: number
+  slug: string
 }
 
 export function ServicesShowcase() {
-  const containerRef = useRef(null)
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   const services: Service[] = [
     {
       id: 1,
-      title: "Professional Web Design & Development",
+      title: "Söz Organizasyonu",
       description:
-        "We design and develop stunning, responsive websites that captivate your audience and drive conversions. From personal portfolios to corporate sites, we deliver pixel-perfect experiences.",
-      icon: <Laptop className="h-10 w-10" />,
+        "Romantik söz organizasyonlarıyla çiftlerin en özel anlarını unutulmaz hale getiriyoruz. Masa süslemeleri, arka plan dekorları ve konsept tasarımlarla yanınızdayız.",
+      icon: <Gem className="h-10 w-10 text-white" />,
       delay: 0.1,
+      slug: "soz",
     },
     {
       id: 2,
-      title: "E-commerce Solutions",
+      title: "Düğün Planlama",
       description:
-        "Transform your business with our custom e-commerce solutions. We build secure, scalable online stores with seamless checkout processes, inventory management, and payment gateway integration.",
-      icon: <ShoppingCart className="h-10 w-10" />,
+        "Hayalinizdeki düğünü gerçeğe dönüştürüyoruz. Mekan seçimi, dekorasyon, ses-ışık sistemleri ve profesyonel organizasyon ekibimizle hizmetinizdeyiz.",
+      icon: <Heart className="h-10 w-10 text-white" />,
       delay: 0.3,
+      slug: "dugun",
     },
     {
       id: 3,
-      title: "Web Applications",
+      title: "After Party Hizmeti",
       description:
-        "Custom web applications tailored to your specific business needs. We create powerful, scalable solutions that streamline operations, enhance productivity, and deliver exceptional user experiences.",
-      icon: <Code className="h-10 w-10" />,
+        "After party organizasyonları, DJ performansları, ışık şovları ve dans alanlarıyla unutulmaz bir gece yaşayın.",
+      icon: <PartyPopper className="h-10 w-10 text-white" />,
       delay: 0.5,
+      slug: "after-party",
     },
     {
       id: 4,
-      title: "iOS & Android App Development",
+      title: "Nişan Organizasyonu",
       description:
-        "Native mobile applications for iOS and Android that provide seamless experiences across all devices. We focus on intuitive interfaces, performance, and functionality that keeps users engaged.",
-      icon: <Smartphone className="h-10 w-10" />,
+        "Kültürel ve geleneksel nişan organizasyonları için profesyonel destek sağlıyoruz.",
+      icon: <Sparkles className="h-10 w-10 text-white" />,
       delay: 0.7,
+      slug: "nisan",
     },
   ]
 
@@ -65,42 +69,43 @@ export function ServicesShowcase() {
     },
   }
 
-const itemVariants = {
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay,
-    },
-  }),
-  hidden: { opacity: 0, y: 20 },
-}
-
+  const itemVariants = {
+    visible: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay },
+    }),
+    hidden: { opacity: 0, y: 20 },
+  }
 
   return (
-    <div ref={containerRef} className="py-16">
+    <section ref={ref} className="py-20 bg-black text-white">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto px-6"
       >
         {services.map((service) => (
           <motion.div
             key={service.id}
             custom={service.delay}
             variants={itemVariants}
-            className="bg-white/5 backdrop-blur-sm rounded-xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
           >
-            <div className="bg-white/10 rounded-full p-4 inline-block mb-6">{service.icon}</div>
+            <div className="mb-6 inline-block p-4 rounded-full bg-white/10">{service.icon}</div>
             <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
             <p className="text-gray-300 mb-6">{service.description}</p>
-            <AnimatedButton variant="outline" className="border-white text-white hover:bg-white/10">
-              Learn more
+            <AnimatedButton
+              href={`/organizasyon/${service.slug}`}
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
+              Detayları Gör
             </AnimatedButton>
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   )
 }
