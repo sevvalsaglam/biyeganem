@@ -15,10 +15,10 @@ export const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>(
     return (
       <section
         ref={ref}
-        className="relative min-h-screen pt-24 flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/hero-bg.jpg')` }}
+        className="relative min-h-screen pt-24 flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/images/hero.png')` }}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <motion.div
           style={{ opacity, scale, y }}
