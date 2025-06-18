@@ -38,11 +38,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             open: { opacity: 1, x: 0 },
           }}
           transition={{ type: "spring", damping: 20, stiffness: 250 }}
-          className="fixed inset-0 z-50 bg-white/30 backdrop-blur-lg flex flex-col overflow-y-auto"
+          className="fixed inset-0 z-50 bg-white/90 backdrop-blur-lg overflow-y-auto"
         >
-          {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/20 bg-white/10">
-            <Logo variant="header" size="md" />
+          {/* Üst Menü */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/30 bg-white/20">
+            <Logo variant="header" size="md" showSlogan />
             <button
               onClick={onClose}
               className="text-black p-2 rounded-full hover:bg-black/10 transition"
@@ -53,29 +53,27 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
 
           {/* Menü İçeriği */}
-          <div className="flex flex-col p-6 space-y-6 text-black font-medium">
-            {/* Açılır Menü */}
-            <div className="pb-4 border-b border-white/20">
+          <div className="flex flex-col gap-6 p-6 pb-28 text-black font-medium">
+            {/* Organizasyon Dropdown */}
+            <div>
               <button
                 onClick={() => setOrgOpen(!orgOpen)}
-                className="flex items-center justify-between w-full text-xl p-3 rounded-xl bg-white/20 hover:bg-white/30 transition"
+                className="w-full flex items-center justify-between text-xl p-3 rounded-xl bg-white/20 hover:bg-white/30 transition"
               >
                 <span>Organizasyonlar</span>
-                <ChevronDown className={cn("h-5 w-5 transition-transform", orgOpen && "rotate-180")} />
+                <ChevronDown
+                  className={cn("h-5 w-5 transition-transform", orgOpen && "rotate-180")}
+                />
               </button>
 
               <AnimatePresence>
                 {orgOpen && (
                   <motion.div
-                    initial="closed"
-                    animate="open"
-                    exit="closed"
-                    variants={{
-                      closed: { height: 0, opacity: 0 },
-                      open: { height: "auto", opacity: 1 },
-                    }}
-                    transition={{ duration: 0.25 }}
-                    className="mt-3 space-y-2 pl-4 overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-2 flex flex-col gap-2 pl-4"
                   >
                     {orgRoutes.map((item) => (
                       <Link
@@ -98,7 +96,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               { label: "Trendler", href: "/trendler" },
               { label: "Galeri", href: "/galeri" },
               { label: "İletişim", href: "/iletisim" },
-              { label: "BiKids", href: "/bikidsevent" }, // Madde 10 – Mobil menüye eklendi
+              { label: "BiKids", href: "/bikidsevent" },
             ].map((link) => (
               <Link
                 key={link.href}
@@ -109,11 +107,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 {link.label}
               </Link>
             ))}
-          </div>
 
-          {/* Alt CTA Butonlar */}
-          <div className="mt-auto p-6 border-t border-white/10">
-            <div className="flex flex-col space-y-4">
+            {/* CTA Butonlar */}
+            <div className="mt-8 flex flex-col gap-4">
               {isHome ? (
                 <SmoothScrollLink
                   href="#iletisim"

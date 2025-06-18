@@ -10,6 +10,7 @@ import { TestimonialsSection } from "./components/testimonials-section"
 import { PhotographerSection } from "./components/photographer-section"
 import { VenuesShowcaseSection } from "./components/venues-section"
 import { GiftsSection } from "./components/gifts-section"
+import { SocialMediaSection } from "./components/social-media-section"
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -58,6 +59,7 @@ export default function Home() {
         </section>
 
         {/* DİĞER SEKTÖRLER */}
+        <SocialMediaSection />
         <TestimonialsSection />
         <PhotographerSection />
         <VenuesShowcaseSection />
