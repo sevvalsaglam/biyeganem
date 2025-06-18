@@ -22,7 +22,7 @@ export function Header() {
   }, [isMobileMenuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#f0efe6]/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Logo variant="header" size="md" showSlogan />
 
