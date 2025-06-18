@@ -33,7 +33,7 @@ export default function Home() {
         <HeroSection ref={heroRef} opacity={opacity} scale={scale} y={y} />
 
         {/* HİZMETLER */}
-        <section id="hizmetler" className="py-24 bg-green-950 text-white scroll-mt-20">
+        <section id="hizmetler" className="py-24 bg-teal-950 text-white scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="mb-16">
               <h2 className="text-4xl md:text-6xl font-bold">Neler Yapıyoruz?</h2>

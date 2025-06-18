@@ -79,7 +79,7 @@ export function Header() {
           {/* BiKids Butonu */}
           <Link
             href="/bikidsevent"
-            className=" px-4 py-2 text-3xl text-green-900 font-logo-script  hover:bg-green-900 hover:text-white transition-colors  border-black rounded-full"
+            className=" px-4 py-2 text-3xl text-emerald-800 font-logo-script  hover:bg-emerald-800 hover:text-white transition-colors  border-black rounded-full"
           >
             BiKids
           </Link>

@@ -26,7 +26,7 @@ export function Logo({
   return (
     <Link href="/" className={`flex flex-col items-center ${className}`}>
       <div className="flex items-center">
-      <span className="font-logo-script text-2xl md:text-4xl text-green-900 text-shadow-2xl ">
+      <span className="font-logo-script text-2xl md:text-4xl text-emerald-800 text-shadow-2xl ">
       Biyegânem
 </span>
 
