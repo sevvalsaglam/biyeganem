@@ -47,7 +47,7 @@ export default function Home() {
 
         {/* DETAYLI ORGANİZASYON */}
         <section id="organizasyonlar" className="py-24 bg-white scroll-mt-20">
-          <div className="container mx-auto px-4">
+          <div className=" mx-auto ">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold">Sizin İçin Ne Yapabiliriz?</h2>
               <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
